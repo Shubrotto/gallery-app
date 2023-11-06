@@ -14,8 +14,8 @@
 }
 
 .checked {
-  background: green;
-  border: 1px solid rgb(43, 163, 39);
+  background: #3d3de3;
+  border: 1px solid #3d3de3;
   color: white;
   margin-right: 10px;
   font-size: 16px;
@@ -96,12 +96,11 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 20px;
   opacity: 0;
   color: white;
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .gallery_item:hover .check {
