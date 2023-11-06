@@ -31,11 +31,10 @@ function App() {
     { id: 10, image: Image9 },
     { id: 11, image: Image },
   ];
-  const [imagesD, setImagesD] = useState(images);
+  const [imagesData, setImagesData] = useState(images);
   const [selected, setSelected] = useState([]);
-  const [imagesData, setImagesData] = useState(imagesD);
   const handleDelete = () => {
-    setImagesD((prevImagesD) => {
+    setImagesData((prevImagesD) => {
       return prevImagesD.filter((img) => !selected.includes(img.id));
     });
     setSelected([]);
@@ -52,6 +51,7 @@ function App() {
   };
 
   const handleDragEnd = (result) => {
+    if (!result.destination) return;
     const items = Array.from(imagesData);
     const [recordedItem] = items.splice(result.destination.index, 1);
     items.splice(result.source.index, 0, recordedItem);
@@ -86,7 +86,7 @@ function App() {
                   {...provided.droppableProps}
                   ref={provided.innerRef}
                 >
-                  {imagesData.map((data, index) => {
+                  {imagesData?.map((data, index) => {
                     const draggableId = data.id.toString();
                     return (
                       <Draggable
@@ -117,6 +117,7 @@ function App() {
                       </Draggable>
                     );
                   })}
+                  {provided.placeholder}
                   <div className="gallery_item">
                     <div className="gallery_item_img item_l_l">
                       <div>
