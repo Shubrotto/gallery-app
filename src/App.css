@@ -88,10 +88,6 @@
   transition: 0.5s ease-in-out;
 }
 
-.gallery_item:hover .overlay {
-  /* opacity: 1; */
-}
-
 .check {
   position: absolute;
   top: 20px;
